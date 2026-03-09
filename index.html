@@ -164,6 +164,17 @@
       transform:translateX(24px);
       background:#000000;
     }
+    body.light-mode .theme-toggle .switch {
+      background:#e7e7e7;
+      border-color:#bdbdbd;
+    }
+    body.light-mode .theme-toggle input:checked + .switch {
+      background:#111111;
+      border-color:#111111;
+    }
+    body.light-mode .theme-toggle input:checked + .switch::before {
+      background:#ffffff;
+    }
     .theme-toggle:hover .switch {
       background:rgba(99,102,241,0.4);
     }
@@ -405,14 +416,16 @@
     .brand .brand-initial { display:inline; font-size:1.8rem; line-height:1; font-weight:800; margin-right:-2px; }
     body.light-mode .brand .brand-text { color: #000000; }
     nav { display:flex; gap:1.1rem; }
-    nav a { font-size:.9rem; font-weight:500; padding:.4rem .75rem; border-radius:999px; line-height:1; position:relative; color: var(--text); }
+    nav a { font-size:.9rem; font-weight:500; padding:.4rem .75rem; border-radius:0; line-height:1; position:relative; color: var(--text); }
     nav a::after { content:""; position:absolute; left:.75rem; right:.75rem; bottom:.2rem; height:1px; background: currentColor; transform:scaleX(0); transform-origin:left; transition:transform var(--transition); border-radius:999px; opacity:.3; }
     nav a:hover::after, nav a:focus-visible::after, nav a.active::after { transform:scaleX(1); }
-    nav a:hover { background:rgba(255,255,255,.12); }
-    nav a.active { background:rgba(255,255,255,.16); }
+    nav a:hover { background:transparent; }
+    nav a.active { background:transparent; }
+    nav a.active:hover, nav a.active:focus-visible { background:transparent; }
     nav a:focus-visible { outline:2px solid rgba(255,255,255,.5); outline-offset:2px; }
-    body.light-mode nav a:hover { background:rgba(0,0,0,.08); }
-    body.light-mode nav a.active { background:rgba(0,0,0,.12); }
+    body.light-mode nav a:hover { background:transparent; }
+    body.light-mode nav a.active { background:transparent; }
+    body.light-mode nav a.active:hover, body.light-mode nav a.active:focus-visible { background:transparent; }
     body.light-mode nav a:focus-visible { outline:2px solid rgba(0,0,0,.3); }
     nav a.icon { padding:.35rem; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; }
     nav a.icon svg { width:20px; height:20px; display:block; fill:currentColor; }
@@ -697,6 +710,7 @@
     .panel:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 16px 48px rgba(99,102,241,0.4), 0 0 30px rgba(99,102,241,0.2); border-color: rgba(99,102,241,0.8); }
     .panel:hover::before { opacity:1; }
     body.light-mode .panel { background:#ffffff; border:1px solid #e0e0e0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); backdrop-filter:none; }
+    body.light-mode .panel::before { background:linear-gradient(135deg, rgba(30,30,30,0.1), rgba(0,0,0,0.12), rgba(70,70,70,0.1)); }
     body.light-mode .panel:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.12); border-color: #c0c0c0; }
     
     .panel h3 { margin:.15rem 0 .55rem; font-size:1rem; letter-spacing:.4px; }
@@ -705,6 +719,7 @@
     body.light-mode .badge { background:#f5f5f5; color:#000000; border:1px solid #e0e0e0; }
     .section-head { font-size:1.55rem; margin:0 0 1.2rem; position:relative; background:var(--gradient); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
     .section-head::after { content:""; position:absolute; left:0; bottom:-7px; width:80px; height:3px; background:var(--gradient); border-radius:999px; background-size:200% 100%; animation:bar 6s linear infinite; box-shadow:0 0 10px rgba(99,102,241,0.6); }
+    body.light-mode .section-head::after { box-shadow:0 0 6px rgba(0,0,0,0.2); }
     @keyframes bar { 0%{background-position:0% 0} 100%{background-position:100% 0} }
     /* Remove themed section halos for a clean white background */
     section { position:relative; }
@@ -771,6 +786,7 @@
     .project:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 20px 50px rgba(99,102,241,0.4), 0 0 40px rgba(99,102,241,0.2); border-color: rgba(99,102,241,0.8); }
     .project:hover::before { opacity:1; }
     body.light-mode .project { background:#ffffff; border:1px solid #e0e0e0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); backdrop-filter:none; }
+    body.light-mode .project::before { background:linear-gradient(135deg, #3a3a3a, #121212, #505050); }
     body.light-mode .project:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.12); border-color: #c0c0c0; }
     .project h3 { margin:.1rem 0 .55rem; font-size:1rem; }
     .project p { font-size:.75rem; margin:0 0 .95rem; color:var(--muted); }
@@ -1048,15 +1064,16 @@
     }
     body.light-mode .contact-info-item:hover {
       background:#ffffff;
-      border-color:#d5daef;
-      box-shadow:0 18px 34px rgba(24,33,61,0.14);
+      border-color:#d1d1d1;
+      box-shadow:0 18px 34px rgba(0,0,0,0.12);
     }
     body.light-mode .contact-icon {
-      background:#2e4fd9;
-      box-shadow:0 8px 16px rgba(46,79,217,0.26);
+      background:#1f1f1f;
+      box-shadow:0 8px 16px rgba(0,0,0,0.2);
     }
     body.light-mode .contact-info-label { color:#111; }
-    body.light-mode .contact-value { color:#3558ee; }
+    body.light-mode .contact-value { color:#111111; }
+    body.light-mode .contact-value:hover { color:#333333; }
     footer { padding:2.2rem 1.4rem 2.6rem; text-align:center; font-size:.8rem; color:var(--muted); border-top:1px solid rgba(99,102,241,0.3); position:relative; z-index:1; transition:border-color 0.3s ease; }
     body.light-mode footer { border-top:1px solid #e0e0e0; }
     /* Utility */
